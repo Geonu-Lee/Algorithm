@@ -1,14 +1,14 @@
 def solution(n, computers):
-    answer = 0
-    visit = [0] * n
-    
-    def dfs(p):
-        visit[p] = 1
-        for index, c in enumerate(computers[p]):
-            if c and visit[index] == 0:
-                dfs(index)
-    for p in range(n):
-        if visit[p] == 0:
-            dfs(p)
-            answer += 1
+    visited=[0]*n 
+    answer=0 
+    def dfs(pc):
+        visited[pc]=1 
+        for idx,c in enumerate(computers[pc]):
+            if c and visited[idx]==0:
+                dfs(idx)
+
+    for pc in range(n):       
+        if visited[pc] == 0: 
+            dfs(pc)          
+            answer+=1        
     return answer
