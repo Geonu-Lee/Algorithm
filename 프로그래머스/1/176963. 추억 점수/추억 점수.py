@@ -1,13 +1,13 @@
 def solution(name, yearning, photo):
     answer = []
-    d = {}
-    for (n, y) in zip(name, yearning):
-        d[n] = y
-        
+    score = {}
+    for i in range(len(name)):
+        score[name[i]] = yearning[i]
+
     for p in photo:
-        s = 0
-        for name in p:
-            s += d.get(name, 0)
-        answer.append(s)
+        tmp = 0
+        for pp in p:
+            tmp += score.get(pp, 0)
+        answer.append(tmp)
         
     return answer
